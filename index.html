@@ -8,6 +8,7 @@
     <!-- integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -66,6 +67,13 @@
         </div>
       </div>
     </div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(() => console.log('Service Worker Registered'))
+          .catch(error => console.log('Service Worker Registration Failed:', error));
+      }
+    </script>
     
   </body>
 </html>
